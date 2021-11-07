@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_catalog/pages/home_page.dart';
 import 'package:flutter_catalog/pages/login_page.dart';
+import 'package:flutter_catalog/utils/routes.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 void main() {
@@ -18,9 +19,8 @@ class MyApp extends StatelessWidget {
     var day = "Tuesday";
     const pi = 3.14; */
 
-    bringVegetables(bag: true, rupees: 50);
-
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       themeMode: ThemeMode.light,
       theme: ThemeData(
         primarySwatch: Colors.deepPurple,
@@ -29,13 +29,12 @@ class MyApp extends StatelessWidget {
       darkTheme: ThemeData(
         brightness: Brightness.dark,
       ),
-      initialRoute: "/home",
+      initialRoute: "/",
       routes: {
-        "/home": (context) => LoginPage(), //same as new LoginPage()
-        "/login": (context) => LoginPage(),
+        "/": (context) => LoginPage(),
+        MyRoutes.homeRoute: (context) => HomePage(), //same as new LoginPage()
+        MyRoutes.loginRoute: (context) => LoginPage(),
       },
     );
   }
 }
-
-bringVegetables({@required bool bag = false, int rupees = 100}) {}
